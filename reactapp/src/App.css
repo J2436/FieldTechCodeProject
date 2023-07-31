@@ -1,153 +1,152 @@
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 textarea {
-    resize: none
+  resize: none;
 }
 
 table {
-    width: 100%;
-    position:relative;
-    border-collapse: collapse;
-    table-layout: fixed;
+  width: 100%;
+  position: relative;
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
 tbody tr:nth-child(odd) {
-    background-color: white;
+  background-color: white;
 }
 
 tbody tr:nth-child(even) {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 thead {
-    position: sticky;
-    top: 0;
-    text-align: left;
-    background: black;
-    color: white;
+  position: sticky;
+  top: 0;
+  text-align: left;
+  background: black;
+  color: white;
 }
 
 th.description {
-    width: 30%;
+  width: 30%;
 }
 
 th.assignee {
-    width: 20%;
+  width: 20%;
 }
 
 th.dueDate {
-    width: 20%;
+  width: 20%;
 }
 
 th.percentCompleted {
-    width: 20%;
+  width: 20%;
 }
 
 th.priority {
-    width: 10%;
+  width: 10%;
 }
 
 td {
-    text-align: left;
-    padding: 10px;
+  text-align: left;
+  padding: 10px;
 }
 
-td.description{
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+td.description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 tbody > tr:hover {
-    background-color: lightsteelblue;
+  background-color: lightsteelblue;
 }
 
 .taskTableContainer {
-    height: 55vh;
-    overflow-y: scroll;
-    margin: 5px;
-    margin-bottom: 15px;
-    border: 2px solid black;
+  height: 55vh;
+  overflow-y: scroll;
+  margin: 5px;
+  margin-bottom: 15px;
+  border: 2px solid black;
 }
 
 progress {
-    text-align: center;
-    height: 40px;
-    padding-top: 9px;
-    width: 100%;
+  text-align: center;
+  height: 40px;
+  padding-top: 9px;
+  width: 100%;
 }
 
 progress:after {
-    content: attr(value)'%';
+  content: attr(value) "%";
 }
 
 .flex-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .flex-container-col {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
 
 .flex-container.inputs {
-    flex: 1;
-    justify-content:space-between;
+  flex: 1;
+  justify-content: space-between;
 }
 
-
 input {
-    margin: 0px 5px;
+  margin: 0px 5px;
 }
 
 .flex-container-col.description {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 #descriptionInput {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .description {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .root {
-    padding: 0 25px;
+  padding: 0 25px;
 }
 
 form {
-    display: flex;
-    padding: 20px;
-    justify-content: center;
-    flex-flow: column wrap;
-    width: 90%;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  flex-flow: column wrap;
+  width: 90%;
 }
 
 button {
-    font-size: 16px;
-    border: 1px solid black;
-    border-radius: 5px; 
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 button:hover {
-    background-color: grey;
+  background-color: grey;
 }
 
 .btnContainer > button {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .formButtons {
-    justify-content: end;
-    flex-direction: row-reverse;
-    margin-top: 10px;
+  justify-content: end;
+  flex-direction: row-reverse;
+  margin-top: 10px;
 }
 
 .formButtons button {
-    margin-left: 10px;
+  margin-left: 10px;
 }
