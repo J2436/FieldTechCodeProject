@@ -4,7 +4,7 @@ namespace webapi
 {
     public class Task : ITask
     {
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string Assignee { get; set; }

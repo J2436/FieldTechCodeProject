@@ -18,7 +18,7 @@ const Task = ({task, setShowForm, setSelectedTask}) => {
                     task.percentCompleted
                 </progress>
             </td>
-            <td>{task?.isPriority ? "true" : "false"}</td>
+            <td>{task?.isPriority ? "Yes" : "No"}</td>
         </tr>
     )
 }
@@ -207,7 +207,7 @@ export const App = () => {
             <div className="filters">
                 <label>
                     Search:
-                    <input type="text" onChange={handleNameFilter} />
+                    <input type="text" placeholder="Assignee" onChange={handleNameFilter} />
                 </label>
             </div>
 
