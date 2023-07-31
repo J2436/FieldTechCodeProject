@@ -1,19 +1,16 @@
-textarea {
-    resize: none
+h1 {
+    text-align: center;
 }
 
-#tableContainer {
-    height: 50vh;
-    overflow-y: scroll;
-    margin: 5px;
-    margin-bottom: 15px;
-    border: 2px solid black;
+textarea {
+    resize: none
 }
 
 table {
     width: 100%;
     position:relative;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 tbody tr:nth-child(odd) {
@@ -32,32 +29,107 @@ thead {
     color: white;
 }
 
-tr {
-    height: 14px;
+th.description {
+    width: 30%;
 }
 
+th.assignee {
+    width: 20%;
+}
+
+th.dueDate {
+    width: 20%;
+}
+
+th.percentCompleted {
+    width: 20%;
+}
+
+th.priority {
+    width: 10%;
+}
 
 td {
     text-align: left;
     padding: 10px;
 }
 
+td.description{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 tbody > tr:hover {
     background-color: lightsteelblue;
+}
+
+.taskTableContainer {
+    height: 55vh;
+    overflow-y: scroll;
+    margin: 5px;
+    margin-bottom: 15px;
+    border: 2px solid black;
 }
 
 progress {
     text-align: center;
     height: 40px;
     padding-top: 9px;
+    width: 100%;
 }
 
 progress:after {
     content: attr(value)'%';
 }
 
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-container-col {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.flex-container.inputs {
+    flex: 1;
+    justify-content:space-between;
+}
+
+
+input {
+    margin: 0px 5px;
+}
+
+.flex-container-col.description {
+    flex: 1 1 auto;
+}
+
+#descriptionInput {
+    margin-top: 5px;
+}
+
+.description {
+    margin-top: 10px;
+}
+
+.root {
+    padding: 0 25px;
+}
+
+form {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    flex-flow: column wrap;
+    width: 90%;
+}
+
 button {
-    font-size: 15px;
+    font-size: 16px;
     border: 1px solid black;
     border-radius: 5px; 
 }
@@ -66,49 +138,16 @@ button:hover {
     background-color: grey;
 }
 
-#description {
-    width: 20px;
-}
-
-#descriptionInputLabel {
-    display: block;
-}
-
-#descriptionInput {
-    margin-top: 10px;
-    display: flex;
-}
-
-form {
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-form .leftForm {
-    width: 30%;
-    margin-right: 2em;
-}
-
-form .description {
-    display: flex;
-    order: 2;
-}
-
-form .leftForm > label > input {
-    flex: 1;
-    order: 1;
-    width: 100%;
-    margin: 5px;
-}
-
-.btnContainer {
-    display: flex;
-    flex-direction: row-reverse;
-    margin: 10px;
-}
-
 .btnContainer > button {
     margin-left: 5px;
+}
+
+.formButtons {
+    justify-content: end;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+}
+
+.formButtons button {
+    margin-left: 10px;
 }

@@ -12,7 +12,7 @@ const Task = ({task, setShowForm, setSelectedTask}) => {
         <tr id={task?.id} onClick={handleClick}>
             <td>{task?.assignee}</td>
             <td>{task?.dueDate}</td>
-            <td id="description">{task?.description}</td>
+            <td className="description">{task?.description}</td>
             <td>
                 <progress value={task.percentCompleted} max="100">
                     task.percentCompleted
@@ -28,11 +28,11 @@ const TaskTable = ({ tasks, setShowForm, setSelectedTask, deleteTask }) => {
         <table> 
             <thead>
                 <tr>
-                    <th>Assignee</th>
-                    <th>Due Date</th>
-                    <th>Description</th>
-                    <th>Percent Completed</th>
-                    <th>Priority</th>
+                    <th className="assignee">Assignee</th>
+                    <th className="dueDate">Due Date</th>
+                    <th className="description">Description</th>
+                    <th className="percentCompleted">Percent Completed</th>
+                    <th className="priority">Priority</th>
                 </tr>
             </thead>
             <tbody>
@@ -108,8 +108,8 @@ const TaskForm = ({ addTask, updateTask, deleteTask, setShowForm, selectedTask})
     }
 
     return (
-        <form method="post" onSubmit={selectedTask ? handleUpdate : handlePost} id="taskForm">
-            <section className="leftForm">
+        <form method="post" onSubmit={selectedTask ? handleUpdate : handlePost}>
+            <div className="flex-container inputs">
                 <label>
                     Asignee*:
                     <input type="text" required onChange={(e) => setFormData({...formData, assignee: e.target.value})} value={formData.assignee} />
@@ -119,31 +119,29 @@ const TaskForm = ({ addTask, updateTask, deleteTask, setShowForm, selectedTask})
                     Due Date*:
                     <input type="datetime-local" required min={new Date(Date.now)} onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })} value={formData.dueDate} />
                 </label>
-                <section className="">
-                    <label>
-                        Percent Complete:
-                        <input type="number" min="0" max="100" onChange={(e) => setFormData({...formData, percentCompleted: e.target.value })} value={formData.percentCompleted} />
-                    </label>
+                <label>
+                    Percent Completed:
+                    <input type="number" min="0" max="100" onChange={(e) => setFormData({...formData, percentCompleted: e.target.value })} value={formData.percentCompleted} />
+                </label>
 
-                    <label label="Priority">
-                        Priority:
-                        <input type="checkbox" onChange={() => setFormData({...formData, isPriority: !formData.isPriority})} checked={formData.isPriority} />
-                    </label>
-                </section>
-            </section>
+                <label label="Priority">
+                    Priority:
+                    <input type="checkbox" onChange={() => setFormData({...formData, isPriority: !formData.isPriority})} checked={formData.isPriority} />
+                </label>
+            </div>
 
-            <section className="descriptionInput">
-                <label id="descriptionInputLabel" htmlFor="descriptionInput">
+            <div className="flex-container-col description">
+                <label htmlFor="descriptionInput">
                     Description*:
                 </label>
                 <textarea id="descriptionInput" rows="7" cols="65" required onChange={(e) => setFormData({ ...formData, description: e.target.value })} value={formData.description} />
-                <section className="btnContainer">
+                <div className="flex-container formButtons">
                     <button>{selectedTask ? "Update" : "Create"}</button>
                     <button onClick={handleClose}>Cancel</button>
                     {selectedTask ? <button onClick={(e) => handleTaskDelete(e, selectedTask.id)}>Delete</button> : <></> } 
 
-                </section>
-            </section>
+                </div>
+            </div>
             <div>
             </div>
 
@@ -198,28 +196,29 @@ export const App = () => {
     }
 
     const filterTasks = (tasks) => {
-        return tasks.filter(t => filters.name.toLowerCase() ? t.assignee.toLowerCase() === filters.name : t)
+        return tasks.filter(t => filters.name.toLowerCase() ? t.assignee.toLowerCase() === filters.name.toLowerCase() : t)
     }
 
     return (
-        <div>
+        <div className="flex-container-col root">
             <h1>Tasks</h1>
-            <div className="filters">
+            <div className="flex-container filters">
                 <label>
                     Search:
                     <input type="text" placeholder="Assignee" onChange={handleNameFilter} />
                 </label>
             </div>
 
-            <div id="tableContainer">
+            <div className="taskTableContainer">
                 <TaskTable tasks={filterTasks(tasks)} setShowForm={setShowForm} setSelectedTask={setSelectedTask} />
             </div>
-
-            <div className="btnContainer">
-                { showForm ? <></> : <button onClick={handleShowCreateForm} id="createTaskBtn">Create Task</button>}
+            
+            <div className="flex-container">
+                { showForm ? <></> : <button onClick={handleShowCreateForm}>Create Task</button>}
             </div>
-
-            {showForm ? <TaskForm addTask={addTask} updateTask={updateTask} deleteTask={deleteTask} setShowForm={setShowForm} selectedTask={selectedTask} /> : <></>}
+            <div className="flex-container">
+                {showForm ? <TaskForm addTask={addTask} updateTask={updateTask} deleteTask={deleteTask} setShowForm={setShowForm} selectedTask={selectedTask} /> : <></>}
+            </div>
         </div>
     )
 }
