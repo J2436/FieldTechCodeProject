@@ -205,6 +205,7 @@ export function App() {
   const [selectedTask, setSelectedTask] = useState();
   const [filters, setFilters] = useState({
     name: "",
+    priority: false,
   });
 
   const populateTaskData = async () => {
@@ -247,12 +248,19 @@ export function App() {
     setFilters({ ...filters, name: e.target.value });
   };
 
-  const filterTasks = (tasks) =>
-    tasks.filter((t) =>
-      filters.name.toLowerCase()
+  const filterTasks = (tasks) => {
+    let filteredTasks = tasks;
+    filteredTasks = filteredTasks.filter((t) =>
+      filters.name
         ? t.assignee.toLowerCase() === filters.name.toLowerCase()
         : t,
     );
+
+    filteredTasks = filteredTasks.filter((t) =>
+      filters.priority ? t.isPriority === filters.priority : t,
+    );
+    return filteredTasks;
+  };
 
   return (
     <div className="flex-container-col root">
@@ -264,6 +272,18 @@ export function App() {
             type="text"
             placeholder="Assignee"
             onChange={handleNameFilter}
+          />
+        </label>
+
+        <label>
+          Priority
+          <input
+            type="radio"
+            value="Priority"
+            checked={filters.priority}
+            onClick={() =>
+              setFilters({ ...filters, priority: !filters.priority })
+            }
           />
         </label>
       </div>
