@@ -1,2 +1,0 @@
-C:\Users\jdot2\source\repos\FieldTestCodeProject\reactapp\obj\Debug\reactapp.esproj.SuggestedBindingRedirects.cache
-C:\Users\jdot2\source\repos\FieldTestCodeProject\reactapp\obj\Debug\reactapp.esproj.CoreCompileInputs.cache
