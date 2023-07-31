@@ -1,0 +1,114 @@
+textarea {
+    resize: none
+}
+
+#tableContainer {
+    height: 50vh;
+    overflow-y: scroll;
+    margin: 5px;
+    margin-bottom: 15px;
+    border: 2px solid black;
+}
+
+table {
+    width: 100%;
+    position:relative;
+    border-collapse: collapse;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    text-align: left;
+    background: black;
+    color: white;
+}
+
+tr {
+    height: 14px;
+}
+
+
+td {
+    text-align: left;
+    padding: 10px;
+}
+
+tbody > tr:hover {
+    background-color: lightsteelblue;
+}
+
+progress {
+    text-align: center;
+    height: 40px;
+    padding-top: 9px;
+}
+
+progress:after {
+    content: attr(value)'%';
+}
+
+button {
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px; 
+}
+
+button:hover {
+    background-color: grey;
+}
+
+#description {
+    width: 20px;
+}
+
+#descriptionInputLabel {
+    display: block;
+}
+
+#descriptionInput {
+    margin-top: 10px;
+    display: flex;
+}
+
+form {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+form .leftForm {
+    width: 30%;
+    margin-right: 2em;
+}
+
+form .description {
+    display: flex;
+    order: 2;
+}
+
+form .leftForm > label > input {
+    flex: 1;
+    order: 1;
+    width: 100%;
+    margin: 5px;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 10px;
+}
+
+.btnContainer > button {
+    margin-left: 5px;
+}
