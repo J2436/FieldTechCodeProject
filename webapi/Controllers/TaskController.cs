@@ -16,7 +16,7 @@ public class TaskController : ControllerBase
         _dbContext = dbContext;
     }
 
-    [HttpGet(Name = "GetTasks")]
+    [HttpGet]
     public ActionResult<IEnumerable<Task>> GetTasks()
     {
         return new ActionResult<IEnumerable<Task>>(_dbContext.Tasks);
