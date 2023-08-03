@@ -11,7 +11,7 @@ using webapi;
 namespace webapi.Migrations
 {
     [DbContext(typeof(TaskDbContext))]
-    [Migration("20230730010650_InitialCreate")]
+    [Migration("20230803194927_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

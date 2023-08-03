@@ -6,6 +6,7 @@ namespace webapi
         public DbSet<Task> Tasks { get; set; }
         public TaskDbContext(DbContextOptions<TaskDbContext> options) : base(options)
         {
+            Database.EnsureCreated();
         }
     }
 }
